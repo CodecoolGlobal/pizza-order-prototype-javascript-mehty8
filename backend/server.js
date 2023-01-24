@@ -11,16 +11,23 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('frontend'))
+app.use(express.static('./frontend'))
 
 app.get('/', (req, res) => res.render('index'))
 
+let data = JSON.parse(fs.readFileSync(filePath,'utf8')) 
+
 app.post('/order', (req,res) =>{
-    fs.writeFile(filePath, JSON.stringify(req.body, null, 2), (err) => {
+  let package = {}
+  let date = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
+  let time = new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds()
+  Object.assign(package, { date }, { time }, req.body)
+  data.order.push(package)
+    fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
         if (err){
           return res.status(500).send(err)
         }
-        res.send('Done')
+        res.send(req.body)
     console.log(req.body)
 })
 })

@@ -3,69 +3,69 @@
     "Shot": "Shoulder Shot",
     "Last": "1 event",
     "Price": "10.000 $",
-    "Icon": "mindread.jpg"
+    "Icon": "pictures/teleportation.png"
 },
 {
     "Type": "Time Travel",
     "Shot": "Shoulder Shot",
     "Last": "1 event",
     "Price": "20.000 $", 
-    "Icon": "mindread.jpg" 
+    "Icon": "pictures/timetravel.png" 
 },
 {
     "Type": "Flying",
     "Shot": "Shoulder Shot",
     "Last": "1 hour",
     "Price": "20.000 $",
-    "Icon": "mindread.jpg" 
+    "Icon": "pictures/flying.png"
 },
 {
     "Type": "Invincibility",
     "Shot": "Shoulder Shot",
     "Last": "1 event",
     "Price": "100.000 $",
-    "Icon": "mindread.jpg"   
+    "Icon": "pictures/invincibility.png"   
 },
 {
     "Type": "X-Ray vision",
     "Shot": "Shoulder Shot",
     "Last": "1 hour",
     "Price": "30.000 $",
-    "Icon": "mindread.jpg" 
+    "Icon": "pictures/x-rayvision.png" 
 },
 {
-    "Type": "Mind reading",
+    "Type": "Mind Reading",
     "Shot": "Shoulder Shot",
     "Last": "1 hour",
     "Price": "100.000 $",
-    "Icon": "mindread.jpg" 
+    "Icon": "pictures/mindreading.png" 
 },
 {
     "Type": "Invisibility",
     "Shot": "Shoulder Shot",
     "Last": "1 hour",
     "Price": "30.000 $",
-    "Icon": "mindread.jpg" 
+    "Icon": "pictures/invisibility.png" 
 },
 {
     "Type": "Phasing",
     "Shot": "Shoulder Shot",
     "Last": "1 hour",
     "Price": "10.000 $",
-    "Icon": "mindread.jpg" 
+    "Icon": "pictures/phasing.png"
 },
 {
     "Type": "Duplication",
     "Shot": "Shoulder Shot",
     "Last": "1 day",
     "Price": "10.000 $",
-    "Icon": "mindread.jpg"   
+    "Icon": "pictures/duplication.png"   
 },
 {
-    "Type": "Healing touch",
+    "Type": "Healing Touch",
     "Shot": "Shoulder Shot",
     "Last": "1 hour",
     "Price": "30.000 $",
-    "Icon": "mindread.jpg" 
+    "Icon": "pictures/healingtouch.png" 
 }
 ]

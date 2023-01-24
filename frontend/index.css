@@ -1,7 +1,9 @@
 /*font-family: 'JelleeBold';*/
 img {
     width: 100px;
+    border-radius: 80px;
 }
+
 
 #cardDiv {
     display: grid;
@@ -9,14 +11,21 @@ img {
     grid-template-columns: repeat(5, 200px);
     gap: 20px
 }
+
 header{
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .purchasing {
     display: flex;
     justify-content: center;
+    gap: 5px
 }
 
 .button {
@@ -35,3 +44,31 @@ header{
 .headerDiv {
     position: absolute;
 }
+
+.inputDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;   
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.opinion {
+    display: flex;
+    justify-content: center;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+}
+
+.total {
+    font-weight: 600;
+}
+
