@@ -1,4 +1,11 @@
 /*font-family: 'JelleeBold';*/
+body {
+    
+    background-image: url("https://janschreiber.github.io/img2/black-chalk.jpg");
+    color: rgb(230, 230, 230);
+
+}
+
 img {
     width: 100px;
     border-radius: 80px;
@@ -6,6 +13,8 @@ img {
 
 
 #cardDiv {
+    font-family: 'Indie Flower', 'Comic Sans', cursive;
+    font-size: 0.7em;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(5, 200px);
