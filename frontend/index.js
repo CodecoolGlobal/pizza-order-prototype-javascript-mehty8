@@ -7,9 +7,7 @@ let header = document.createElement('header')
 header.innerText = 'Helmet'
 let headerDiv = document.createElement('div')
 headerDiv.setAttribute('class', 'headerDiv')
-let form = document.createElement('form')
-form.setAttribute('action', '/order')
-form.setAttribute('method', 'post')
+
 
 let welcomeDiv = document.createElement('div')
 welcomeDiv.setAttribute('class', 'welcome')
@@ -31,7 +29,7 @@ customerText.innerText = 'What an experience'
 customerCare.appendChild(customerText)
 
 
-let input1 = document.createElement('input')
+/* let input1 = document.createElement('input')
 input1.setAttribute('name', 'name')
 input1.setAttribute('placeholder', 'Tell me your name')
 input1.setAttribute('required', '')
@@ -45,28 +43,26 @@ input2.setAttribute('required', '')
 let input3 = document.createElement('input')
 input3.setAttribute('name', 'email')
 input3.setAttribute('placeholder', 'Tell me your email address')
-input3.setAttribute('required', '')
+input3.setAttribute('required', '') */
 
 let inputDiv = document.createElement('div')
 inputDiv.setAttribute('class', 'inputDiv')
 let totalAmount = document.createElement('div')
 totalAmount.setAttribute('class', 'total')
 inputDiv.appendChild(totalAmount)
-inputDiv.appendChild(input1)
+/* inputDiv.appendChild(input1)
 inputDiv.appendChild(input2)
-inputDiv.appendChild(input3)
+inputDiv.appendChild(input3) */
 
 
 
 
 let button = document.createElement('button')
-button.setAttribute('class', 'totalpurchase')
-button.innerText = 'Purchase'
-button.setAttribute('type', 'submit')
+button.setAttribute('class', 'checkOut')
+button.innerText = 'Check Out'
 inputDiv.appendChild(button)
 
-form.appendChild(inputDiv)
-header.appendChild(headerDiv)
+headerDiv.appendChild(inputDiv)
 
 let upperDiv = document.createElement('div')
 upperDiv.setAttribute('class', 'upperDiv')
@@ -105,7 +101,7 @@ const superpower = ({Type, Icon, Shot, Last, Price}) => `
 	</div>
 `;
 
-const purchasingList = (Type, Amount, Price) => `
+ const purchasingList = (Type, Amount, Price) => `
 <div class=purchasing>
 <p name=${Type.replace(/ /g, '-')} >${Type}</p>
 <input type=hidden name=${Type.replace(/ /g, '-')}  value=${Amount}>
@@ -145,33 +141,47 @@ const amountPricing = (e) => {
     console.log('dedeew')
 }
 
-totalAmountCounting = 0
+let totalAmountCounting = 0
+
+let purchaseObject = [
+]
 
 const purchase = (e) => {
     if (e.target.classList.value === 'purchase'){
     let type = e.target.parentNode.querySelector('h2').innerText
     let subAmount = e.target.parentNode.querySelector('p').innerText
     let subPrice = e.target.parentNode.querySelector('.price').innerText
-    form.insertAdjacentHTML("afterbegin", purchasingList(type, subAmount, subPrice))
+    purchaseObject.push( { [type]: [ { subAmount }, { subPrice }] })
+    headerDiv.insertAdjacentHTML("afterbegin", purchasingList(type, subAmount, subPrice))
     totalAmountCounting += Number(subPrice.replace(/\.| \$/g, ''))
     visibilty = true
     totalAmount.innerText = 'Total Amount: ' + String(totalAmountCounting).replace(/(\d{3})$/, '.$1') + ' $'
-    console.log(totalAmountCounting)
+    console.log(purchaseObject)
     }
 }
+
+const checkOut = (e) => {
+    if(e.target.classList.value === 'checkOut'){
+        window.location.href = '/order'
+    }
+}
+
 
 const onClick = (e) => {
     amountPricing(e)
     purchase(e)
+    checkOut(e)
 }
 
 
 
 window.addEventListener('click', onClick)
 
-header.addEventListener('mouseenter', () => {if (visibilty === true){headerDiv.appendChild(form)}})
+header.addEventListener('mouseenter', () => {if (visibilty === true){header.appendChild(headerDiv)}})
 
-header.addEventListener('mouseleave', () => form.remove())
+header.addEventListener('mouseleave', () => headerDiv.remove())
+
+
 
 
 /* const onClick = (e) => e.target.id === 'plus' ? amount = amount + 1 : window.alert('NW')
@@ -192,5 +202,29 @@ for(let i =0; i < buttonsPlus.length; i++){
 /* clickevent;
 window, load
 window click */
+
+/* const totalPurchase = (e) =>{
+if (e.target.classList.value === 'totalpurchase'){
+fetch('http://localhost:7000/').
+then(response => response.text()).
+then(html => {
+    const inputFields = new DOMParser().parseFromString(html, 'text/html').querySelectorAll('input');
+    const inputValues = Array.from(inputFields).map(x => x.value);
+    console.log(inputValues);
+
+    return fetch('/order', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ inputValues: inputValues })
+    });
+}).
+then(response => response.json()).
+then(data => { console.log(data);
+}).
+catch(error => { console.error(error);
+})
+}
+} */
 
 
