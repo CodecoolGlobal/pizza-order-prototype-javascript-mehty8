@@ -12,8 +12,10 @@ headerDiv.setAttribute('class', 'headerDiv')
 let welcomeDiv = document.createElement('div')
 welcomeDiv.setAttribute('class', 'welcome')
 let welcomeImg = document.createElement('img')
-welcomeImg.setAttribute('src', 'pictures/fist1.jpg')
+welcomeImg.setAttribute('src', 'pictures/fist1.png')
+welcomeImg.setAttribute('id', 'welcomeimg')
 let welcomeText= document.createElement('p')
+welcomeText.setAttribute('class', "welcomemsg")
 welcomeText.innerText = 'SuperPower Inc.'
 welcomeDiv.appendChild(welcomeImg)
 welcomeDiv.appendChild(welcomeText)
@@ -25,10 +27,14 @@ intro.innerText = 'You can be a real superhero'
 let customerCare = document.createElement('div')
 customerCare.setAttribute('class', 'opinion')
 let customerText = document.createElement('p')
-customerText.innerText = 'What an experience'
+customerText.innerText = '˛˛Whatlksfélásf,.fséáfes,\nsféélávéálsemm,sfléásfd-,.cxvléás an experience˙˙\n -Johnny'
+let customerText2 = document.createElement('p')
+customerText2.innerText = '˛˛What an experpkjskélséefá\néeflplsfálsféáefséélksfálálsflésáéásf,ls.,sfdáéfseéásfdfőience˙˙\n -Chris'
+let customerText3 = document.createElement('p')
+customerText3.innerText = '˛˛What an experienceáijkFlkjFAélkal,ad-.,élkadáéladáélasdlikjsad˙˙\n -Harry'
 customerCare.appendChild(customerText)
-
-
+customerCare.appendChild(customerText2)
+customerCare.appendChild(customerText3)
 
 
 let inputDiv = document.createElement('div')
@@ -36,8 +42,6 @@ inputDiv.setAttribute('class', 'inputDiv')
 let totalAmount = document.createElement('div')
 totalAmount.setAttribute('class', 'total')
 inputDiv.appendChild(totalAmount)
-
-
 
 
 let button = document.createElement('button')
