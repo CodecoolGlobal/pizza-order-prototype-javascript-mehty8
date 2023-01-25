@@ -29,30 +29,13 @@ customerText.innerText = 'What an experience'
 customerCare.appendChild(customerText)
 
 
-/* let input1 = document.createElement('input')
-input1.setAttribute('name', 'name')
-input1.setAttribute('placeholder', 'Tell me your name')
-input1.setAttribute('required', '')
 
-
-let input2 = document.createElement('input')
-input2.setAttribute('name', 'address')
-input2.setAttribute('placeholder', 'Tell me your address')
-input2.setAttribute('required', '')
-
-let input3 = document.createElement('input')
-input3.setAttribute('name', 'email')
-input3.setAttribute('placeholder', 'Tell me your email address')
-input3.setAttribute('required', '') */
 
 let inputDiv = document.createElement('div')
 inputDiv.setAttribute('class', 'inputDiv')
 let totalAmount = document.createElement('div')
 totalAmount.setAttribute('class', 'total')
 inputDiv.appendChild(totalAmount)
-/* inputDiv.appendChild(input1)
-inputDiv.appendChild(input2)
-inputDiv.appendChild(input3) */
 
 
 
@@ -114,7 +97,7 @@ const superpower = ({Type, Icon, Shot, Last, Price}) => `
 
 const superpowerList = y =>
     y.map(x=>cardDiv.insertAdjacentHTML('beforeend', superpower(x))
-)
+).join('')
 
 
 const pricingPlus = (x,y) => {
@@ -151,12 +134,13 @@ const purchase = (e) => {
     let type = e.target.parentNode.querySelector('h2').innerText
     let subAmount = e.target.parentNode.querySelector('p').innerText
     let subPrice = e.target.parentNode.querySelector('.price').innerText
-    purchaseObject.push( { [type]: [ { subAmount }, { subPrice }] })
+    purchaseObject.push({ type, subAmount, subPrice })
     headerDiv.insertAdjacentHTML("afterbegin", purchasingList(type, subAmount, subPrice))
     totalAmountCounting += Number(subPrice.replace(/\.| \$/g, ''))
     visibilty = true
     totalAmount.innerText = 'Total Amount: ' + String(totalAmountCounting).replace(/(\d{3})$/, '.$1') + ' $'
     console.log(purchaseObject)
+    window.localStorage.setItem('purchaseObject', JSON.stringify(purchaseObject))
     }
 }
 

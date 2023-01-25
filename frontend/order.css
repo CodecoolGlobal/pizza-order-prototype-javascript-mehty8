@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.orderInfos {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    box-sizing:border-box
+}
+
+.inputDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.buttonDiv {
+    align-self: center;
+}
+
+.orderInfosDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
