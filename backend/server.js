@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./frontend'))
 
 app.get('/', (req, res) => res.render('index'))
+app.get('/order', (req, res) => res.render('order'))
 
 let data = JSON.parse(fs.readFileSync(filePath,'utf8')) 
 
