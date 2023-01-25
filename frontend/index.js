@@ -12,8 +12,10 @@ headerDiv.setAttribute('class', 'headerDiv')
 let welcomeDiv = document.createElement('div')
 welcomeDiv.setAttribute('class', 'welcome')
 let welcomeImg = document.createElement('img')
-welcomeImg.setAttribute('src', 'pictures/fist1.jpg')
+welcomeImg.setAttribute('src', 'pictures/fist1.png')
+welcomeImg.setAttribute('id', 'welcomeimg')
 let welcomeText= document.createElement('p')
+welcomeText.setAttribute('class', "welcomemsg")
 welcomeText.innerText = 'SuperPower Inc.'
 welcomeDiv.appendChild(welcomeImg)
 welcomeDiv.appendChild(welcomeText)
@@ -25,36 +27,21 @@ intro.innerText = 'You can be a real superhero'
 let customerCare = document.createElement('div')
 customerCare.setAttribute('class', 'opinion')
 let customerText = document.createElement('p')
-customerText.innerText = 'What an experience'
+customerText.innerText = '˛˛Whatlksfélásf,.fséáfes,\nsféélávéálsemm,sfléásfd-,.cxvléás an experience˙˙\n -Johnny'
+let customerText2 = document.createElement('p')
+customerText2.innerText = '˛˛What an experpkjskélséefá\néeflplsfálsféáefséélksfálálsflésáéásf,ls.,sfdáéfseéásfdfőience˙˙\n -Chris'
+let customerText3 = document.createElement('p')
+customerText3.innerText = '˛˛What an experienceáijkFlkjFAélkal,ad-.,élkadáéladáélasdlikjsad˙˙\n -Harry'
 customerCare.appendChild(customerText)
+customerCare.appendChild(customerText2)
+customerCare.appendChild(customerText3)
 
-
-/* let input1 = document.createElement('input')
-input1.setAttribute('name', 'name')
-input1.setAttribute('placeholder', 'Tell me your name')
-input1.setAttribute('required', '')
-
-
-let input2 = document.createElement('input')
-input2.setAttribute('name', 'address')
-input2.setAttribute('placeholder', 'Tell me your address')
-input2.setAttribute('required', '')
-
-let input3 = document.createElement('input')
-input3.setAttribute('name', 'email')
-input3.setAttribute('placeholder', 'Tell me your email address')
-input3.setAttribute('required', '') */
 
 let inputDiv = document.createElement('div')
 inputDiv.setAttribute('class', 'inputDiv')
 let totalAmount = document.createElement('div')
 totalAmount.setAttribute('class', 'total')
 inputDiv.appendChild(totalAmount)
-/* inputDiv.appendChild(input1)
-inputDiv.appendChild(input2)
-inputDiv.appendChild(input3) */
-
-
 
 
 let button = document.createElement('button')
