@@ -51,9 +51,9 @@ body.appendChild(mainDiv)
 const purchasingList = ({type, subAmount, subPrice}) => `
 <div class=orderInfos>
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${type.replace(/ /g, '-')}>
-<p name=${type.replace(/ /g, '-')} >${type}</p>
+<p name=${type.replace(/ /g, '-')} >${type}:</p>
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${subAmount}>
-<p name=${type.replace(/ /g, '-')} >${subAmount}</p>
+<p name=${type.replace(/ /g, '-')} >${subAmount} piece(s),</p>
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${subPrice}>
 <p name=${type.replace(/ /g, '-')} >${subPrice}</p>
 </div>
@@ -86,7 +86,8 @@ const countingFunc = () => {
     counting--
     if (counting >= 1){
     document.getElementById('countdown').innerText = counting
-} else window.location.href = '/' }
+} else {clearInterval(setInterval(countingFunc, 1000)); window.location.href = '/' }
+}
 
 
 const waiting = (purchase) => {

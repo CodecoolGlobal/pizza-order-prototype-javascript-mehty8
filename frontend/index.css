@@ -43,7 +43,6 @@ header{
 .purchasing {
     display: flex;
     justify-content: center;
-    gap: 5px
 }
 
 .purchasing p{
@@ -145,21 +144,21 @@ header{
 }
 
 .purchase {
-    background: transparent; /* Dark gray background #3E3E3E*/
+    background: transparent;
     border: none;
     border-radius: 30px;
-    color: #F8F8F8; /* White text */
-    padding: 10px 20px; /* Add some padding */
-    text-align: center; /* Center the text */
-    text-decoration: none; /* Remove underline */
-    display: inline-block; /* Make the button inline */
-    font-size: 18px; /* Increase font size */
-    font-family: 'Impact', sans-serif; /* Add a font-family */
-    text-transform: uppercase; /* Uppercase the text */
-    letter-spacing: 1px; /* Add some letter spacing */
-    margin: 10px; /* Add some margin */
-    cursor: pointer; /* Add a pointer cursor on hover */
-    transition: all 0.3s ease; /* Add a transition effect */
+    color: #F8F8F8; 
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 18px;
+    font-family: 'Impact', sans-serif; 
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    margin: 10px;
+    cursor: pointer; 
+    transition: all 0.3s ease;
 }
 
 .purchase:hover {

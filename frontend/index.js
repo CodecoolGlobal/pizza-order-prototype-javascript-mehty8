@@ -141,7 +141,6 @@ const purchase = (e) => {
     totalAmountCounting += Number(subPrice.replace(/\.| \$/g, ''))
     visibilty = true
     totalAmount.innerText = 'Total Amount: ' + String(totalAmountCounting).replace(/(\d{3})$/, '.$1') + ' $'
-    console.log(purchaseObject)
     window.localStorage.setItem('purchaseObject', JSON.stringify(purchaseObject))
     }
 }
@@ -163,9 +162,9 @@ const onClick = (e) => {
 
 window.addEventListener('click', onClick)
 
-header.addEventListener('mouseenter', () => {if (visibilty === true){header.appendChild(headerDiv)}})
+header.addEventListener('mouseenter', () => {if (visibilty === true){header.innerText=''; header.appendChild(headerDiv)}})
 
-header.addEventListener('mouseleave', () => headerDiv.remove())
+header.addEventListener('mouseleave', () => { header.innerText='Helmet'; headerDiv.remove()})
 
 
 

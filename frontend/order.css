@@ -1,4 +1,5 @@
 body {
+    background-image: url("https://janschreiber.github.io/img2/black-chalk.jpg");
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,20 +7,18 @@ body {
 }
 
 .mainDiv {
+    font-family: 'Indie Flower', 'Comic Sans', cursive;
+    color: rgb(180, 178, 178);
     display: flex;
     flex-direction: column;
-    gap: 5px
+    gap: 5px;
+    align-items: center;
 }
 
 .orderInfos {
     display: flex;
     justify-content: center;
-    gap: 5px;
-    box-sizing:border-box
-}
-
-.orderInfos p {
-    margin:0px
+    box-sizing:border-box;
 }
 
 .inputDiv {
@@ -31,16 +30,47 @@ body {
 
 .buttonDiv {
     align-self: center;
+    margin: 10px;
+    
+}
+
+button {
+    background: transparent;
+    border: solid 2px white;
+    border-radius: 30px;
+    color: #F8F8F8; 
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 18px;
+    font-family: 'Impact', sans-serif; 
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+}
+
+button:active{
+    font-size: 10px;
 }
 
 .orderInfosDiv {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 5px
 }
 
 p {
-    margin:10px
+    margin:5px
+}
+
+input {
+    border-radius: 50px;
+    width: 200px;
+    height: 20px;
+    border: none;
 }
 
 .thankYou {
@@ -49,8 +79,13 @@ p {
     align-items: center;
 }
 
+.thankYou p{
+    font-size: 30px;
+}
+
 #countdown {
     animation: countdown 7s linear;
+    font-size: 2em;
   }
   
   @keyframes countdown {
