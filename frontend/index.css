@@ -43,10 +43,19 @@ header{
 .purchasing {
     display: flex;
     justify-content: center;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgb(19, 19, 19);
+    margin: 5px;
+    gap: 10px;
 }
-
 .purchasing p{
-    margin:0px
+    margin: 0px;
+}
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .button {
@@ -96,15 +105,15 @@ header{
 }
 
 .headerDiv {
-    position: absolute;
-}
-
-.inputDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;   
-}
+    font-family: 'Indie Flower', 'Comic Sans', cursive;
+    position: flex ;
+    justify-content: flex-end;
+    gap: 70px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: rgb(19, 19, 19);
+    transition: all 0.5s ease;
+} 
 
 .welcome {
     display: flex;
@@ -141,6 +150,7 @@ header{
 
 .total {
     font-weight: 600;
+    padding: 10px;
 }
 
 .purchase {
@@ -166,4 +176,28 @@ header{
     border-color: #F8F8F8; 
     transition: all 0.5s ease;
  }
+ .purchase:active{
+    background-color: #4f0456;
+ }
+ .checkOut{
+    background: transparent; /* Dark gray background #3E3E3E*/
+    border: none;
+    border-radius: 5px;
+    color: #F8F8F8; /* White text */
+    padding: 10px 15px; /* Add some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 18px; /* Increase font size */
+    font-family: 'Impact', sans-serif; /* Add a font-family */
+    text-transform: uppercase; /* Uppercase the text */
+    letter-spacing: 1px; /* Add some letter spacing */
+    margin: 3px; /* Add some margin */
+    cursor: pointer; /* Add a pointer cursor on hover */
+ }
+ .checkOut:hover{
+    border: solid 2px white;
+    border-radius: 40px;
+ }
+
 
