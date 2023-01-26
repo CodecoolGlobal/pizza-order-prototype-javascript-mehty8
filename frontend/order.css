@@ -51,7 +51,7 @@ button {
     transition: all 0.3s ease;
 }
 
-button:active{
+ button:active{
     font-size: 10px;
 }
 
@@ -60,6 +60,11 @@ button:active{
     flex-direction: column;
     justify-content: center;
     gap: 5px
+}
+
+.totalAmount{
+    color: white;
+    font-size: 1.2em;
 }
 
 p {

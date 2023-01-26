@@ -1,14 +1,16 @@
 let importObject = window.localStorage.getItem('purchaseObject')
 let orderDetails = JSON.parse(importObject)
 
+
 let body = document.querySelector('body')
-let mainDiv = document.createElement('mainDiv')
+let mainDiv = document.createElement('div')
 mainDiv.setAttribute('class', 'mainDiv')
 
 let orderInfosDiv = document.createElement('div')
 orderInfosDiv.setAttribute('class', 'orderInfosDiv')
 
 mainDiv.appendChild(orderInfosDiv)
+
 
 let input1 = document.createElement('input')
 input1.setAttribute('name', 'name')
@@ -48,6 +50,7 @@ mainDiv.appendChild(buttonDiv)
 
 body.appendChild(mainDiv)
 
+
 const purchasingList = ({type, subAmount, subPrice}) => `
 <div class=orderInfos>
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${type.replace(/ /g, '-')}>
@@ -55,19 +58,29 @@ const purchasingList = ({type, subAmount, subPrice}) => `
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${subAmount}>
 <p name=${type.replace(/ /g, '-')} >${subAmount} piece(s),</p>
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${subPrice}>
-<p name=${type.replace(/ /g, '-')} >${subPrice}</p>
+<p class= subPrice name=${type.replace(/ /g, '-')} >${subPrice}</p>
 </div>
 `
+const finalCountHtml = (total) => `
+<div class= orderInfos>
+<input type=hidden name=totalAmount value=${total}>
+<p class=totalAmount name=totalAmount>Total Amount: ${total}</p>
+</orderInfos>
+`
+
 window.addEventListener('load', () => {
     orderInfosDiv.insertAdjacentHTML("afterbegin", orderDetails.map(x=> purchasingList(x)).join(''))
-  })
+    let totalAmount = Array.from(document.querySelectorAll('.subPrice')).reduce((a,b)=> a + Number(b.innerText.replace(/\.| \$/g, '')),0)
+    orderInfosDiv.insertAdjacentHTML('beforeend', finalCountHtml(String(totalAmount).replace(/(\d{3})$/, '.$1') + ' $'))
+})
+
 
 
 const totalPurchase = (e) =>{
     if(e.target.classList.value === 'totalpurchase' ){
     const inputFields = document.querySelectorAll('input');
     const inputValues = Array.from(inputFields).map(x => x.value); 
-    if(inputValues[3] && inputValues[4] && inputValues[5]){
+    if(inputValues[inputValues.length - 3] && inputValues[inputValues.length - 2] && inputValues[inputValues.length - 1]){
     fetch('/order/list', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'
