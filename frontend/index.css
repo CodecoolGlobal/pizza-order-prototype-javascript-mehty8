@@ -29,6 +29,7 @@ img {
 
 header{
   display: flex;
+  font-family: 'Indie Flower', 'Comic Sans', cursive;
   justify-content: end;
   position: fixed;
   top: 0;
@@ -135,7 +136,7 @@ header{
     padding-top:  30px;
     display: flex;
     flex-direction: column;
-   justify-content: space-around;
+   justify-content: center;
     align-items: center;
     padding: 25px;
     font-style: italic;
@@ -199,5 +200,8 @@ header{
     border: solid 2px white;
     border-radius: 40px;
  }
-
-
+.checkOut:active{
+   border: solid 1px white;
+   border-radius: 40px;
+   transform: scale(0.95);
+}

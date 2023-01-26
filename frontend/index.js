@@ -27,11 +27,11 @@ intro.innerText = 'You can be a real superhero'
 let customerCare = document.createElement('div')
 customerCare.setAttribute('class', 'opinion')
 let customerText = document.createElement('p')
-customerText.innerText = '˛˛Whatlksfélásf,.fséáfes,\nsféélávéálsemm,sfléásfd-,.cxvléás an experience˙˙\n -Johnny'
+customerText.innerText = '˛˛Thank you guys, I`ve always wanted to feel like a real life superhero.˙˙\n -L. Hemsworth'
 let customerText2 = document.createElement('p')
-customerText2.innerText = '˛˛What an experpkjskélséefá\néeflplsfálsféáefséélksfálálsflésáéásf,ls.,sfdáéfseéásfdfőience˙˙\n -Chris'
+customerText2.innerText = '˛˛I recently purchased the Time Travel Superpower from this webshop,\n I have to say,I`m impressed.\nI would highly recommend this product to anyone looking to add\n a new level of adventure and excitement to their life.˙˙\n -Chris'
 let customerText3 = document.createElement('p')
-customerText3.innerText = '˛˛What an experienceáijkFlkjFAélkal,ad-.,élkadáéladáélasdlikjsad˙˙\n -Harry'
+customerText3.innerText = '˛˛I recently purchased the teleportation superpower from this webshop, \n I am extremely impressed with the results.\n The process is seamless and instantaneous,\n making it incredibly convenient for both personal and professional use. ˙˙\n -Harry'
 customerCare.appendChild(customerText)
 customerCare.appendChild(customerText2)
 customerCare.appendChild(customerText3)
