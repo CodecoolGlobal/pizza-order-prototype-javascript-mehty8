@@ -18,7 +18,7 @@ app.get('/order', (req, res) => res.render('order'))
 
 let data = JSON.parse(fs.readFileSync(filePath,'utf8')) 
 
-app.post('/order', (req,res) =>{
+app.post('/order/list', (req,res) =>{
   let package = {}
   let date = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
   let time = new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds()
