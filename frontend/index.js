@@ -91,9 +91,7 @@ const superpower = ({Type, Icon, Shot, Last, Price}) => `
  const purchasingList = (Type, Amount, Price) => `
 <div class=purchasing>
 <p name=${Type.replace(/ /g, '-')} >${Type}</p>
-<input type=hidden name=${Type.replace(/ /g, '-')}  value=${Amount}>
 <p name=${Type.replace(/ /g, '-')} >${Amount}</p>
-<input type=hidden name=${Type.replace(/ /g, '-')}  value=${Price}>
 <p name=${Type.replace(/ /g, '-')} >${Price}</p>
 </div>
 `

@@ -46,6 +46,10 @@ header{
     gap: 5px
 }
 
+.purchasing p{
+    margin:0px
+}
+
 .button {
     display: flex;
     justify-content: center;

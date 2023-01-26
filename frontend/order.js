@@ -30,6 +30,7 @@ let inputDiv = document.createElement('div')
 inputDiv.setAttribute('class', 'inputDiv')
 
 let button = document.createElement('button')
+button.setAttribute('class', 'totalpurchase')
 button.innerText= 'purchase'
 
 let buttonDiv = document.createElement('div')
@@ -49,6 +50,7 @@ body.appendChild(mainDiv)
 
 const purchasingList = ({type, subAmount, subPrice}) => `
 <div class=orderInfos>
+<input type=hidden name=${type.replace(/ /g, '-')}  value=${type.replace(/ /g, '-')}>
 <p name=${type.replace(/ /g, '-')} >${type}</p>
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${subAmount}>
 <p name=${type.replace(/ /g, '-')} >${subAmount}</p>
@@ -56,7 +58,65 @@ const purchasingList = ({type, subAmount, subPrice}) => `
 <p name=${type.replace(/ /g, '-')} >${subPrice}</p>
 </div>
 `
-orderInfosDiv.insertAdjacentHTML("afterbegin", orderDetails.map(x=> purchasingList(x)).join(''))
+window.addEventListener('load', () => {
+    orderInfosDiv.insertAdjacentHTML("afterbegin", orderDetails.map(x=> purchasingList(x)).join(''))
+  })
+
+
+const totalPurchase = (e) =>{
+    if(e.target.classList.value === 'totalpurchase' ){
+    const inputFields = document.querySelectorAll('input');
+    const inputValues = Array.from(inputFields).map(x => x.value); 
+    if(inputValues[3] && inputValues[4] && inputValues[5]){
+    fetch('/order/list', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ order: inputValues })
+        }).
+    catch(error => { console.error(error);
+    }); return true
+    } else {window.alert('Damn Man, the input fields are required'); return false}
+}
+}
+
+let counting = 7
+
+const countingFunc = () => {
+    counting--
+    if (counting >= 1){
+    document.getElementById('countdown').innerText = counting
+} else window.location.href = '/' }
+
+
+const waiting = (purchase) => {
+    if(purchase){
+    mainDiv.innerHTML = ''
+    const thankYou = document.createElement('div')
+    thankYou.setAttribute('class', 'thankYou')
+    const thankYoup1 = document.createElement('p')
+    thankYoup1.innerText = 'Thank You'
+    const thankYoup2 = document.createElement('p')
+    thankYoup2.innerText = 'Your order is on its way'
+    const thankYoup3 = document.createElement('p')
+    thankYoup3.innerText = 'The page will reload in...'
+    const countDown = document.createElement('div')
+    countDown.setAttribute('id', 'countdown')
+    countDown.innerText = counting
+    thankYou.appendChild(thankYoup1)
+    thankYou.appendChild(thankYoup2)
+    thankYou.appendChild(thankYoup3)
+    thankYou.appendChild(countDown)
+    mainDiv.appendChild(thankYou)
+    setInterval(countingFunc, 1000)
+}
+}
+
+const clickEvent = (e) => {
+    waiting(totalPurchase(e))
+}
+
+window.addEventListener('click', clickEvent)
 
 
 

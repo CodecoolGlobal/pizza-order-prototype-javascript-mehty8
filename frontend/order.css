@@ -18,6 +18,10 @@ body {
     box-sizing:border-box
 }
 
+.orderInfos p {
+    margin:0px
+}
+
 .inputDiv {
     display: flex;
     flex-direction: column;
@@ -34,3 +38,26 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+
+p {
+    margin:10px
+}
+
+.thankYou {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#countdown {
+    animation: countdown 7s linear;
+  }
+  
+  @keyframes countdown {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
