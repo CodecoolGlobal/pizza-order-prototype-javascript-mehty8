@@ -56,7 +56,7 @@ const purchasingList = ({type, subAmount, subPrice}) => `
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${type.replace(/ /g, '-')}>
 <p name=${type.replace(/ /g, '-')} >${type}:</p>
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${subAmount}>
-<p name=${type.replace(/ /g, '-')} >${subAmount} piece(s),</p>
+<p name=${type.replace(/ /g, '-')} >${subAmount} shot(s),</p>
 <input type=hidden name=${type.replace(/ /g, '-')}  value=${subPrice}>
 <p class= subPrice name=${type.replace(/ /g, '-')} >${subPrice}</p>
 </div>

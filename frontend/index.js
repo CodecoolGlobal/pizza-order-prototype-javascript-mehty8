@@ -24,19 +24,6 @@ let intro = document.createElement('div')
 intro.setAttribute('class', 'intro')
 intro.innerText = 'You can be a real superhero'
 
-let customerCare = document.createElement('div')
-customerCare.setAttribute('class', 'opinion')
-let customerText = document.createElement('p')
-customerText.innerText = '˛˛Thank you guys, I`ve always wanted to feel like a real life superhero.˙˙\n -L. Hemsworth'
-let customerText2 = document.createElement('p')
-customerText2.innerText = '˛˛I recently purchased the Time Travel Superpower from this webshop,\n I have to say,I`m impressed.\nI would highly recommend this product to anyone looking to add\n a new level of adventure and excitement to their life.˙˙\n -Chris'
-let customerText3 = document.createElement('p')
-customerText3.innerText = '˛˛I recently purchased the teleportation superpower from this webshop, \n I am extremely impressed with the results.\n The process is seamless and instantaneous,\n making it incredibly convenient for both personal and professional use. ˙˙\n -Harry'
-customerCare.appendChild(customerText)
-customerCare.appendChild(customerText2)
-customerCare.appendChild(customerText3)
-
-
 let inputDiv = document.createElement('div')
 inputDiv.setAttribute('class', 'inputDiv')
 let totalAmount = document.createElement('div')
@@ -61,7 +48,6 @@ mainDiv.appendChild(upperDiv)
 mainDiv.appendChild(welcomeDiv)
 mainDiv.appendChild(intro)
 mainDiv.appendChild(cardDiv)
-mainDiv.appendChild(customerCare)
 body.appendChild(mainDiv)
 
 
@@ -91,7 +77,7 @@ const superpower = ({Type, Icon, Shot, Last, Price}) => `
  const purchasingList = (Type, Amount, Price) => `
 <div class=purchasing>
 <p name=${Type.replace(/ /g, '-')} >${Type}:</p>
-<p name=${Type.replace(/ /g, '-')} >${Amount} piece(s),</p>
+<p name=${Type.replace(/ /g, '-')} >${Amount} shot(s),</p>
 <p name=${Type.replace(/ /g, '-')} >${Price}</p>
 </div>
 `
