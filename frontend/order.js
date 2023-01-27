@@ -3,13 +3,13 @@ let orderDetails = JSON.parse(importObject)
 
 
 let body = document.querySelector('body')
-let mainDiv = document.createElement('div')
-mainDiv.setAttribute('class', 'mainDiv')
+let form = document.createElement('form')
+form.setAttribute('class', 'form')
 
 let orderInfosDiv = document.createElement('div')
 orderInfosDiv.setAttribute('class', 'orderInfosDiv')
 
-mainDiv.appendChild(orderInfosDiv)
+form.appendChild(orderInfosDiv)
 
 
 let input1 = document.createElement('input')
@@ -33,7 +33,7 @@ inputDiv.setAttribute('class', 'inputDiv')
 
 let button = document.createElement('button')
 button.setAttribute('class', 'totalpurchase')
-button.innerText= 'purchase'
+button.innerText = 'purchase'
 
 let buttonDiv = document.createElement('div')
 buttonDiv.setAttribute('class', 'buttonDiv')
@@ -43,21 +43,18 @@ inputDiv.appendChild(input2)
 inputDiv.appendChild(input3)
 buttonDiv.appendChild(button)
 
-mainDiv.appendChild(orderInfosDiv)
-mainDiv.appendChild(inputDiv)
-mainDiv.appendChild(buttonDiv)
+form.appendChild(orderInfosDiv)
+form.appendChild(inputDiv)
+form.appendChild(buttonDiv)
 
 
-body.appendChild(mainDiv)
+body.appendChild(form)
 
 
-const purchasingList = ({type, subAmount, subPrice}) => `
+const purchasingList = ({ type, subAmount, subPrice }) => `
 <div class=orderInfos>
-<input type=hidden name=${type.replace(/ /g, '-')}  value=${type.replace(/ /g, '-')}>
 <p name=${type.replace(/ /g, '-')} >${type}:</p>
-<input type=hidden name=${type.replace(/ /g, '-')}  value=${subAmount}>
 <p name=${type.replace(/ /g, '-')} >${subAmount} shot(s),</p>
-<input type=hidden name=${type.replace(/ /g, '-')}  value=${subPrice}>
 <p class= subPrice name=${type.replace(/ /g, '-')} >${subPrice}</p>
 </div>
 `
@@ -69,68 +66,84 @@ const finalCountHtml = (total) => `
 `
 
 window.addEventListener('load', () => {
-    orderInfosDiv.insertAdjacentHTML("afterbegin", orderDetails.map(x=> purchasingList(x)).join(''))
-    let totalAmount = Array.from(document.querySelectorAll('.subPrice')).reduce((a,b)=> a + Number(b.innerText.replace(/\.| \$/g, '')),0)
+    orderInfosDiv.insertAdjacentHTML("afterbegin", orderDetails.map(x => purchasingList(x)).join(''))
+    let totalAmount = Array.from(document.querySelectorAll('.subPrice')).reduce((a, b) => a + Number(b.innerText.replace(/\.| \$/g, '')), 0)
     orderInfosDiv.insertAdjacentHTML('beforeend', finalCountHtml(String(totalAmount).replace(/(\d{3})$/, '.$1') + ' $'))
 })
 
 
 
-const totalPurchase = (e) =>{
-    if(e.target.classList.value === 'totalpurchase' ){
-    const inputFields = document.querySelectorAll('input');
-    const inputValues = Array.from(inputFields).map(x => x.value); 
-    if(inputValues[inputValues.length - 3] && inputValues[inputValues.length - 2] && inputValues[inputValues.length - 1]){
+const totalPurchase = (e) => {
+    // if (e.target.classList.value === 'totalpurchase') {
+    // const inputFields = document.querySelectorAll('input');
+    // const inputValues = Array.from(inputFields).map(x => x.value); 
+    // for (const value of inputValues) {
+    //     if (!value) {
+    //         return;
+    //     }
+    // }
+    // if (inputValues[inputValues.length - 3] && inputValues[inputValues.length - 2] && inputValues[inputValues.length - 1]) {
+    const orderObject = {};
+    const formData = new FormData(e.target);
+
+    for (const [key, value] of formData.entries()) {
+        orderObject[key] = value;
+    }
+    orderObject.products = orderDetails;
+    console.log(orderObject);
     fetch('/order/list', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ order: inputValues })
-        }).
-    catch(error => { console.error(error);
-    }); return true
-    } else {window.alert('Damn Man, the input fields are required'); return false}
-}
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ order: orderObject })
+    }).
+        catch(error => {
+            console.error(error);
+        }); return true
+    // } else { window.alert('Damn Man, the input fields are required'); return false }
+    // }
 }
 
 let counting = 7
 
 const countingFunc = () => {
     counting--
-    if (counting >= 1){
-    document.getElementById('countdown').innerText = counting
-} else {clearInterval(setInterval(countingFunc, 1000)); window.location.href = '/' }
+    if (counting >= 1) {
+        document.getElementById('countdown').innerText = counting
+    } else { clearInterval(setInterval(countingFunc, 1000)); window.location.href = '/' }
 }
 
 
 const waiting = (purchase) => {
-    if(purchase){
-    mainDiv.innerHTML = ''
-    const thankYou = document.createElement('div')
-    thankYou.setAttribute('class', 'thankYou')
-    const thankYoup1 = document.createElement('p')
-    thankYoup1.innerText = 'Thank You'
-    const thankYoup2 = document.createElement('p')
-    thankYoup2.innerText = 'Your order is on its way'
-    const thankYoup3 = document.createElement('p')
-    thankYoup3.innerText = 'The page will reload in...'
-    const countDown = document.createElement('div')
-    countDown.setAttribute('id', 'countdown')
-    countDown.innerText = counting
-    thankYou.appendChild(thankYoup1)
-    thankYou.appendChild(thankYoup2)
-    thankYou.appendChild(thankYoup3)
-    thankYou.appendChild(countDown)
-    mainDiv.appendChild(thankYou)
-    setInterval(countingFunc, 1000)
-}
+    if (purchase) {
+        form.innerHTML = ''
+        const thankYou = document.createElement('div')
+        thankYou.setAttribute('class', 'thankYou')
+        const thankYoup1 = document.createElement('p')
+        thankYoup1.innerText = 'Thank You'
+        const thankYoup2 = document.createElement('p')
+        thankYoup2.innerText = 'Your order is on its way'
+        const thankYoup3 = document.createElement('p')
+        thankYoup3.innerText = 'The page will reload in...'
+        const countDown = document.createElement('div')
+        countDown.setAttribute('id', 'countdown')
+        countDown.innerText = counting
+        thankYou.appendChild(thankYoup1)
+        thankYou.appendChild(thankYoup2)
+        thankYou.appendChild(thankYoup3)
+        thankYou.appendChild(countDown)
+        form.appendChild(thankYou)
+        setInterval(countingFunc, 1000)
+    }
 }
 
-const clickEvent = (e) => {
+const onFormSubmit = (e) => {
+    e.preventDefault();
     waiting(totalPurchase(e))
 }
 
-window.addEventListener('click', clickEvent)
+form.addEventListener('submit', onFormSubmit)
 
 
 

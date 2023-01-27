@@ -285,6 +285,28 @@
         "greg",
         "rgrg"
       ]
+    },
+    {
+      "date": "2023-1-27",
+      "time": "13:45:23",
+      "order": {
+        "totalAmount": "30.000",
+        "name": "Oh boy it works",
+        "address": "Codecool",
+        "email": "email@email.com",
+        "products": [
+          {
+            "type": "Flying",
+            "subAmount": "1",
+            "subPrice": "20.000 $"
+          },
+          {
+            "type": "Phasing",
+            "subAmount": "1",
+            "subPrice": "10.000 $"
+          }
+        ]
+      }
     }
   ]
 }

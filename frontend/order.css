@@ -6,7 +6,7 @@ body {
     height: 100vh;
 }
 
-.mainDiv {
+.form {
     font-family: 'Indie Flower', 'Comic Sans', cursive;
     color: rgb(180, 178, 178);
     display: flex;
